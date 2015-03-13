@@ -1,0 +1,58 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: johnktims
+      changes:
+        - createTable:
+            tableName: person
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(50)
+                  constraints:
+                    unique: true
+              - column:
+                  name: age
+                  type: integer
+
+  - changeSet:
+      id: 2
+      author: johnktims
+      changes:
+        - createTable:
+            tableName: address
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: person_id
+                  type: integer
+              - column:
+                  name: street
+                  type: varchar(128)
+              - column:
+                  name: zipcode
+                  type: integer
+
+  - changeSet:
+      id: 3
+      author: johnktims
+      changes:
+        - addForeignKeyConstraint:
+            constraintName: fk_address_person
+            baseColumnNames: person_id
+            baseTableName: address
+            referencedColumnNames: id
+            referencedTableName: person
