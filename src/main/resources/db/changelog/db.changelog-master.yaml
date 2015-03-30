@@ -21,6 +21,9 @@ databaseChangeLog:
               - column:
                   name: age
                   type: integer
+              - column:
+                  name: birthday
+                  type: datetime
 
   - changeSet:
       id: 2
