@@ -6,4 +6,4 @@ creates the database from the liquibase changeset in ```src/main/resources/db/ch
 ```bash
 mvn hibernate:hbm2java
 ```
-then reverse engineers that database and creates JPA entites.
+then reverse engineers that database and creates JPA entities.
